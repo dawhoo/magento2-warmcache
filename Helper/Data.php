@@ -60,14 +60,17 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      * @param \Magento\UrlRewrite\Model\UrlRewrite $urlRewriteModel
      * @param \Magento\Framework\Url $frontUrlModel
      */
-    public function __construct(\Magento\Framework\App\Helper\Context $context,
+  
+public function __construct (\Magento\Framework\App\Helper\Context $context,
                                 \Magento\Catalog\Model\Product $productModel,
                                 \Magento\Catalog\Model\Category $categoryModel,
                                 \Magento\Cms\Model\Page $pageModel,
                                 \Magento\UrlRewrite\Model\UrlRewrite $urlRewriteModel,
-                                \Magento\Framework\Url $frontUrlModel)
+                                \Magento\Framework\Url $frontUrlModel,
+								\Magento\Framework\App\State $state)
     {
         parent::__construct($context);
+		$state->setAreaCode('frontend'); // or 'adminhtml', depending on your needs
         $this->_productModel = $productModel;
         $this->_categoryModel = $categoryModel;
         $this->_pageModel = $pageModel;
